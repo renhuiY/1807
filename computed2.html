@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://cdn.bootcss.com/vue/2.5.16/vue.js"></script>
+	</head>
+	<body>
+		<div class="box">
+			用户名:<input type="text" v-model="str" />{{computedStr}}
+			<ul>
+				<li v-for="item in filterList">{{item}}</li>
+			</ul>
+		</div>
+		<script>
+			new Vue({
+				el:".box",
+				data:{
+					str:"",
+					list:["aa","bb","cc","dd"]
+				},
+				computed:{
+					computedStr(){
+						if(this.str.length<5){
+							return"用户名过短";
+							
+						}
+						else{
+							return":)";
+						}
+					},
+					filterList(){
+						return this.list.filter((item,index)=>index>1)
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

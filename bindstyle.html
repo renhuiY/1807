@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://cdn.bootcss.com/vue/2.5.16/vue.js"></script>
+		<style>
+			.red{
+				color:red;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<div id="box">
+			<ul>
+				<li v-for="(item,index) in list"@click="change(index)">
+				<span :class="{'red':index===curIndex}">{{item}}</span>	
+				</li>
+			</ul>
+		</div>
+		<script>
+			new Vue({
+				el:"#box",
+				data:{
+					curIndex:0,
+					list:["aa","abc",'acd']
+				},
+				methods:{
+					change(index){
+						this.curIndex=index;
+					}
+				}
+			})
+		</script>
+	</body>
+</html>
